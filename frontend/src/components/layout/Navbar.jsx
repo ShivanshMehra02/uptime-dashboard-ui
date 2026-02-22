@@ -29,7 +29,7 @@ export const Navbar = () => {
             data-testid="navbar-title"
             className="text-lg font-semibold tracking-tight text-white"
           >
-            Take-Home
+            Uptime AI
           </h1>
         </div>
 
