@@ -57,11 +57,11 @@ function App() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="p-6 md:p-8">
+      <main className="p-5 md:p-6">
         {/* Header Metrics Section */}
         <section
           data-testid="metrics-section"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
         >
           <ProgressCard progress={progress} />
           <MetricCard
@@ -86,7 +86,7 @@ function App() {
         {/* Main Two-Column Layout */}
         <section
           data-testid="main-content-section"
-          className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-5"
         >
           {/* Left Panel - Report List */}
           <div className="lg:col-span-4 xl:col-span-3">
@@ -108,7 +108,7 @@ function App() {
             {selectedReport ? (
               <div
                 data-testid="charts-section"
-                className="grid grid-cols-1 xl:grid-cols-2 gap-6"
+                className="grid grid-cols-1 xl:grid-cols-2 gap-5"
               >
                 <BarChart data={selectedReport.barChartData} />
                 <DonutChart data={selectedReport.donutChartData} />
@@ -116,15 +116,15 @@ function App() {
             ) : (
               <div
                 data-testid="no-report-selected"
-                className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl p-12 flex flex-col items-center justify-center min-h-[400px]"
+                className="bg-[#2e2e4a]/60 rounded-[10px] p-12 flex flex-col items-center justify-center min-h-[380px]"
               >
-                <div className="h-16 w-16 rounded-full bg-purple-900/50 flex items-center justify-center mb-4">
-                  <span className="text-2xl text-purple-300">📊</span>
+                <div className="h-16 w-16 rounded-full bg-[#3e3e6a]/50 flex items-center justify-center mb-4">
+                  <span className="text-2xl text-[#a0a0c0]">📊</span>
                 </div>
-                <h3 className="text-lg font-medium text-purple-100 mb-2">
+                <h3 className="text-base font-medium text-white mb-2">
                   No Report Selected
                 </h3>
-                <p className="text-sm text-purple-400/70 text-center max-w-sm">
+                <p className="text-sm text-[#a0a0c0] text-center max-w-sm">
                   Select a report from the list to view detailed metrics and charts.
                 </p>
               </div>
