@@ -15,37 +15,46 @@ export const ReportList = ({
   onPageChange,
   onAddClick,
 }) => {
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    const pages = [];
+    for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+      pages.push(i);
+    }
+    return pages;
+  };
+
   return (
     <div
       data-testid="report-list-panel"
-      className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl overflow-hidden flex flex-col h-full"
+      className="bg-[#2e2e4a]/60 rounded-[10px] overflow-hidden flex flex-col h-full"
     >
       {/* Header */}
-      <div className="p-5 border-b border-purple-800/30">
-        <h2 className="text-lg font-semibold tracking-tight text-white mb-4">
+      <div className="p-5 border-b border-[#3e3e6a]/50">
+        <h2 className="text-base font-semibold text-white mb-4">
           Select Report Dashboard
         </h2>
 
         {/* Search and Add button row */}
         <div className="flex gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#a0a0c0]" />
             <Input
               data-testid="report-search-input"
               type="text"
               placeholder="Search reports..."
               value={searchQuery}
               onChange={(e) => onSearch(e.target.value)}
-              className="pl-10 bg-purple-950/30 border-purple-800/30 focus:border-purple-500 focus:ring-0 text-white placeholder:text-purple-400/50 rounded-xl h-10"
+              className="pl-10 bg-[#1f1f33] border-[#3e3e6a]/50 focus:border-[#4a4aff] focus:ring-0 text-white placeholder:text-[#6e6e8a] rounded-lg h-10"
             />
           </div>
           <Button
             data-testid="add-report-button"
             onClick={onAddClick}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/20 font-medium transition-all rounded-xl px-4 py-2 h-10"
+            className="bg-[#4a4aff] text-white hover:bg-[#5a5aff] font-medium transition-all rounded-lg px-4 py-2 h-10"
           >
             <Plus className="h-4 w-4 mr-1" />
-            Add
+            ADD
           </Button>
         </div>
       </div>
@@ -53,7 +62,7 @@ export const ReportList = ({
       {/* Report list with scroll */}
       <div
         data-testid="report-list-container"
-        className="flex-1 overflow-y-auto p-3 space-y-2 min-h-0"
+        className="flex-1 overflow-y-auto p-3 space-y-1 min-h-0"
       >
         {reports.length > 0 ? (
           reports.map((report) => (
@@ -65,7 +74,7 @@ export const ReportList = ({
             />
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center py-12 text-purple-400/50">
+          <div className="flex flex-col items-center justify-center py-12 text-[#6e6e8a]">
             <Search className="h-8 w-8 mb-3" />
             <p className="text-sm">No reports found</p>
           </div>
@@ -76,33 +85,46 @@ export const ReportList = ({
       {totalPages > 1 && (
         <div
           data-testid="pagination-controls"
-          className="p-4 border-t border-purple-800/30 flex items-center justify-between"
+          className="p-4 border-t border-[#3e3e6a]/50 flex items-center justify-center gap-2"
         >
-          <span className="text-xs text-purple-400/70">
-            Page {currentPage} of {totalPages}
-          </span>
-          <div className="flex gap-2">
+          <Button
+            data-testid="pagination-prev"
+            variant="outline"
+            size="sm"
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="bg-transparent text-[#a0a0c0] hover:bg-[#3e3e6a]/50 border-[#4e4e6a] disabled:opacity-30 disabled:cursor-not-allowed h-8 w-8 p-0 rounded-full"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          
+          {getPageNumbers().map((page) => (
             <Button
-              data-testid="pagination-prev"
+              key={page}
+              data-testid={`pagination-page-${page}`}
               variant="outline"
               size="sm"
-              onClick={() => onPageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="bg-purple-900/30 text-purple-200 hover:bg-purple-800/40 border-purple-700/30 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
+              onClick={() => onPageChange(page)}
+              className={`h-8 w-8 p-0 rounded-full text-sm font-medium ${
+                currentPage === page
+                  ? 'bg-[#4a4aff] text-white border-[#4a4aff]'
+                  : 'bg-transparent text-[#a0a0c0] border-[#4e4e6a] hover:bg-[#3e3e6a]/50'
+              }`}
             >
-              <ChevronLeft className="h-4 w-4" />
+              {page}
             </Button>
-            <Button
-              data-testid="pagination-next"
-              variant="outline"
-              size="sm"
-              onClick={() => onPageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="bg-purple-900/30 text-purple-200 hover:bg-purple-800/40 border-purple-700/30 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+          ))}
+          
+          <Button
+            data-testid="pagination-next"
+            variant="outline"
+            size="sm"
+            onClick={() => onPageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="bg-transparent text-[#a0a0c0] hover:bg-[#3e3e6a]/50 border-[#4e4e6a] disabled:opacity-30 disabled:cursor-not-allowed h-8 w-8 p-0 rounded-full"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       )}
     </div>

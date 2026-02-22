@@ -13,32 +13,32 @@ import { Bar } from 'react-chartjs-2';
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-// Bar chart component for unit operations alerts
+// Bar chart component for unit operations alerts - matching reference design
 export const BarChart = ({ data }) => {
-  // Chart.js configuration with purple theme
+  // Chart.js configuration matching reference colors
   const chartData = useMemo(() => ({
     labels: data?.labels || ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
     datasets: [
       {
         label: 'In Process',
         data: data?.inProcess || [28, 22, 15, 18, 25, 12],
-        backgroundColor: '#a855f7',
-        borderRadius: 4,
-        barThickness: 16,
+        backgroundColor: '#8a8aff',
+        borderRadius: 3,
+        barThickness: 14,
       },
       {
         label: 'Unacknowledged',
         data: data?.unacknowledged || [18, 15, 20, 12, 10, 16],
-        backgroundColor: '#ec4899',
-        borderRadius: 4,
-        barThickness: 16,
+        backgroundColor: '#e06a8a',
+        borderRadius: 3,
+        barThickness: 14,
       },
       {
         label: 'On Watch',
         data: data?.onWatch || [10, 12, 8, 14, 6, 11],
-        backgroundColor: '#6366f1',
-        borderRadius: 4,
-        barThickness: 16,
+        backgroundColor: '#4a4aff',
+        borderRadius: 3,
+        barThickness: 14,
       },
     ],
   }), [data]);
@@ -50,37 +50,37 @@ export const BarChart = ({ data }) => {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#c4b5fd',
+          color: '#a0a0c0',
           font: {
             family: 'Inter',
-            size: 12,
+            size: 11,
           },
           usePointStyle: true,
           pointStyle: 'circle',
-          padding: 20,
+          padding: 16,
         },
       },
       title: {
         display: false,
       },
       tooltip: {
-        backgroundColor: '#1e1432',
-        titleColor: '#f5f3ff',
-        bodyColor: '#c4b5fd',
-        borderColor: '#581c87',
+        backgroundColor: '#2e2e4a',
+        titleColor: '#ffffff',
+        bodyColor: '#c0c0e0',
+        borderColor: '#4e4e6a',
         borderWidth: 1,
-        cornerRadius: 8,
-        padding: 12,
+        cornerRadius: 6,
+        padding: 10,
       },
     },
     scales: {
       x: {
         grid: {
-          color: '#3b1d59',
+          color: '#2e2e4a',
           drawBorder: false,
         },
         ticks: {
-          color: '#a78bfa',
+          color: '#a0a0c0',
           font: {
             family: 'Inter',
             size: 11,
@@ -89,11 +89,11 @@ export const BarChart = ({ data }) => {
       },
       y: {
         grid: {
-          color: '#3b1d59',
+          color: '#2e2e4a',
           drawBorder: false,
         },
         ticks: {
-          color: '#a78bfa',
+          color: '#a0a0c0',
           font: {
             family: 'Inter',
             size: 11,
@@ -107,15 +107,15 @@ export const BarChart = ({ data }) => {
   return (
     <div
       data-testid="bar-chart-container"
-      className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl p-6 flex flex-col hover:border-purple-600/50 transition-all"
+      className="bg-[#2e2e4a]/60 rounded-[10px] p-5 flex flex-col"
     >
       {/* Header */}
-      <h3 className="text-lg font-medium tracking-tight text-white mb-6">
+      <h3 className="text-sm font-medium text-white mb-4">
         Best Unit Operations with Latest Number of Alerts
       </h3>
 
       {/* Chart */}
-      <div className="flex-1 min-h-[300px]">
+      <div className="flex-1 min-h-[280px]">
         <Bar data={chartData} options={options} />
       </div>
     </div>
