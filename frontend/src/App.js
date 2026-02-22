@@ -52,7 +52,7 @@ function App() {
   const progress = Math.min(Math.round(metrics.closingRate), 100);
 
   return (
-    <div data-testid="dashboard-app" className="min-h-screen bg-zinc-950">
+    <div data-testid="dashboard-app" className="min-h-screen bg-slate-900">
       {/* Top Navigation */}
       <Navbar />
 
@@ -116,15 +116,15 @@ function App() {
             ) : (
               <div
                 data-testid="no-report-selected"
-                className="bg-zinc-900 border border-zinc-800 rounded-xl p-12 flex flex-col items-center justify-center min-h-[400px]"
+                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-12 flex flex-col items-center justify-center min-h-[400px]"
               >
-                <div className="h-16 w-16 rounded-full bg-zinc-800 flex items-center justify-center mb-4">
-                  <span className="text-2xl text-zinc-500">📊</span>
+                <div className="h-16 w-16 rounded-full bg-slate-700 flex items-center justify-center mb-4">
+                  <span className="text-2xl text-slate-400">📊</span>
                 </div>
-                <h3 className="text-lg font-medium text-zinc-300 mb-2">
+                <h3 className="text-lg font-medium text-slate-300 mb-2">
                   No Report Selected
                 </h3>
-                <p className="text-sm text-zinc-500 text-center max-w-sm">
+                <p className="text-sm text-slate-500 text-center max-w-sm">
                   Select a report from the list to view detailed metrics and charts.
                 </p>
               </div>

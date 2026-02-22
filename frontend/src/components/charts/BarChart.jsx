@@ -22,21 +22,21 @@ export const BarChart = ({ data }) => {
       {
         label: 'In Process',
         data: data?.inProcess || [28, 22, 15, 18, 25, 12],
-        backgroundColor: '#fafafa',
+        backgroundColor: '#3b82f6',
         borderRadius: 4,
         barThickness: 16,
       },
       {
         label: 'Unacknowledged',
         data: data?.unacknowledged || [18, 15, 20, 12, 10, 16],
-        backgroundColor: '#71717a',
+        backgroundColor: '#06b6d4',
         borderRadius: 4,
         barThickness: 16,
       },
       {
         label: 'On Watch',
         data: data?.onWatch || [10, 12, 8, 14, 6, 11],
-        backgroundColor: '#3f3f46',
+        backgroundColor: '#475569',
         borderRadius: 4,
         barThickness: 16,
       },
@@ -50,7 +50,7 @@ export const BarChart = ({ data }) => {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#a1a1aa',
+          color: '#94a3b8',
           font: {
             family: 'Inter',
             size: 12,
@@ -64,10 +64,10 @@ export const BarChart = ({ data }) => {
         display: false,
       },
       tooltip: {
-        backgroundColor: '#18181b',
-        titleColor: '#fafafa',
-        bodyColor: '#a1a1aa',
-        borderColor: '#27272a',
+        backgroundColor: '#1e293b',
+        titleColor: '#f8fafc',
+        bodyColor: '#94a3b8',
+        borderColor: '#334155',
         borderWidth: 1,
         cornerRadius: 8,
         padding: 12,
@@ -76,11 +76,11 @@ export const BarChart = ({ data }) => {
     scales: {
       x: {
         grid: {
-          color: '#27272a',
+          color: '#334155',
           drawBorder: false,
         },
         ticks: {
-          color: '#71717a',
+          color: '#64748b',
           font: {
             family: 'Inter',
             size: 11,
@@ -89,11 +89,11 @@ export const BarChart = ({ data }) => {
       },
       y: {
         grid: {
-          color: '#27272a',
+          color: '#334155',
           drawBorder: false,
         },
         ticks: {
-          color: '#71717a',
+          color: '#64748b',
           font: {
             family: 'Inter',
             size: 11,
@@ -107,10 +107,10 @@ export const BarChart = ({ data }) => {
   return (
     <div
       data-testid="bar-chart-container"
-      className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex flex-col hover:border-zinc-700 transition-all"
+      className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 flex flex-col hover:border-blue-500/30 transition-all"
     >
       {/* Header */}
-      <h3 className="text-lg font-medium tracking-tight text-zinc-100 mb-6">
+      <h3 className="text-lg font-medium tracking-tight text-slate-100 mb-6">
         Best Unit Operations with Latest Number of Alerts
       </h3>
 

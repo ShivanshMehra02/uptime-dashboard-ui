@@ -21,8 +21,8 @@ export const DonutChart = ({ data }) => {
         data: data
           ? [data.open, data.inProcess, data.acknowledged, data.onWatch]
           : [25, 30, 25, 20],
-        backgroundColor: ['#fafafa', '#a1a1aa', '#52525b', '#27272a'],
-        borderColor: '#18181b',
+        backgroundColor: ['#3b82f6', '#06b6d4', '#10b981', '#475569'],
+        borderColor: '#1e293b',
         borderWidth: 3,
         hoverOffset: 8,
       },
@@ -37,7 +37,7 @@ export const DonutChart = ({ data }) => {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#a1a1aa',
+          color: '#94a3b8',
           font: {
             family: 'Inter',
             size: 12,
@@ -64,10 +64,10 @@ export const DonutChart = ({ data }) => {
         },
       },
       tooltip: {
-        backgroundColor: '#18181b',
-        titleColor: '#fafafa',
-        bodyColor: '#a1a1aa',
-        borderColor: '#27272a',
+        backgroundColor: '#1e293b',
+        titleColor: '#f8fafc',
+        bodyColor: '#94a3b8',
+        borderColor: '#334155',
         borderWidth: 1,
         cornerRadius: 8,
         padding: 12,
@@ -85,10 +85,10 @@ export const DonutChart = ({ data }) => {
   return (
     <div
       data-testid="donut-chart-container"
-      className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex flex-col hover:border-zinc-700 transition-all"
+      className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 flex flex-col hover:border-blue-500/30 transition-all"
     >
       {/* Header */}
-      <h3 className="text-lg font-medium tracking-tight text-zinc-100 mb-6">
+      <h3 className="text-lg font-medium tracking-tight text-slate-100 mb-6">
         Alert Rates Distribution
       </h3>
 

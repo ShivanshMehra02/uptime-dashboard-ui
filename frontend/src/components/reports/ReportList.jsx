@@ -18,10 +18,10 @@ export const ReportList = ({
   return (
     <div
       data-testid="report-list-panel"
-      className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden flex flex-col h-full"
+      className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col h-full"
     >
       {/* Header */}
-      <div className="p-5 border-b border-zinc-800">
+      <div className="p-5 border-b border-slate-700/50">
         <h2 className="text-lg font-semibold tracking-tight text-white mb-4">
           Select Report Dashboard
         </h2>
@@ -29,20 +29,20 @@ export const ReportList = ({
         {/* Search and Add button row */}
         <div className="flex gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
             <Input
               data-testid="report-search-input"
               type="text"
               placeholder="Search reports..."
               value={searchQuery}
               onChange={(e) => onSearch(e.target.value)}
-              className="pl-10 bg-zinc-950 border-zinc-800 focus:border-white focus:ring-0 text-white placeholder:text-zinc-600 rounded-lg h-10"
+              className="pl-10 bg-slate-900/50 border-slate-700 focus:border-blue-500 focus:ring-0 text-white placeholder:text-slate-500 rounded-lg h-10"
             />
           </div>
           <Button
             data-testid="add-report-button"
             onClick={onAddClick}
-            className="bg-white text-zinc-950 hover:bg-zinc-200 shadow-sm font-medium transition-colors rounded-lg px-4 py-2 h-10"
+            className="bg-blue-500 text-white hover:bg-blue-600 shadow-sm font-medium transition-colors rounded-lg px-4 py-2 h-10"
           >
             <Plus className="h-4 w-4 mr-1" />
             Add
@@ -65,7 +65,7 @@ export const ReportList = ({
             />
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center py-12 text-zinc-500">
+          <div className="flex flex-col items-center justify-center py-12 text-slate-500">
             <Search className="h-8 w-8 mb-3" />
             <p className="text-sm">No reports found</p>
           </div>
@@ -76,9 +76,9 @@ export const ReportList = ({
       {totalPages > 1 && (
         <div
           data-testid="pagination-controls"
-          className="p-4 border-t border-zinc-800 flex items-center justify-between"
+          className="p-4 border-t border-slate-700/50 flex items-center justify-between"
         >
-          <span className="text-xs text-zinc-500">
+          <span className="text-xs text-slate-500">
             Page {currentPage} of {totalPages}
           </span>
           <div className="flex gap-2">
@@ -88,7 +88,7 @@ export const ReportList = ({
               size="sm"
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="bg-zinc-800 text-zinc-50 hover:bg-zinc-700 border-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
+              className="bg-slate-700 text-slate-50 hover:bg-slate-600 border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -98,7 +98,7 @@ export const ReportList = ({
               size="sm"
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="bg-zinc-800 text-zinc-50 hover:bg-zinc-700 border-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
+              className="bg-slate-700 text-slate-50 hover:bg-slate-600 border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
