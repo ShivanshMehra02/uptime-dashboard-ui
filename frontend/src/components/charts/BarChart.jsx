@@ -15,28 +15,28 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 // Bar chart component for unit operations alerts
 export const BarChart = ({ data }) => {
-  // Chart.js configuration
+  // Chart.js configuration with purple theme
   const chartData = useMemo(() => ({
     labels: data?.labels || ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
     datasets: [
       {
         label: 'In Process',
         data: data?.inProcess || [28, 22, 15, 18, 25, 12],
-        backgroundColor: '#3b82f6',
+        backgroundColor: '#a855f7',
         borderRadius: 4,
         barThickness: 16,
       },
       {
         label: 'Unacknowledged',
         data: data?.unacknowledged || [18, 15, 20, 12, 10, 16],
-        backgroundColor: '#06b6d4',
+        backgroundColor: '#ec4899',
         borderRadius: 4,
         barThickness: 16,
       },
       {
         label: 'On Watch',
         data: data?.onWatch || [10, 12, 8, 14, 6, 11],
-        backgroundColor: '#475569',
+        backgroundColor: '#6366f1',
         borderRadius: 4,
         barThickness: 16,
       },
@@ -50,7 +50,7 @@ export const BarChart = ({ data }) => {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#94a3b8',
+          color: '#c4b5fd',
           font: {
             family: 'Inter',
             size: 12,
@@ -64,10 +64,10 @@ export const BarChart = ({ data }) => {
         display: false,
       },
       tooltip: {
-        backgroundColor: '#1e293b',
-        titleColor: '#f8fafc',
-        bodyColor: '#94a3b8',
-        borderColor: '#334155',
+        backgroundColor: '#1e1432',
+        titleColor: '#f5f3ff',
+        bodyColor: '#c4b5fd',
+        borderColor: '#581c87',
         borderWidth: 1,
         cornerRadius: 8,
         padding: 12,
@@ -76,11 +76,11 @@ export const BarChart = ({ data }) => {
     scales: {
       x: {
         grid: {
-          color: '#334155',
+          color: '#3b1d59',
           drawBorder: false,
         },
         ticks: {
-          color: '#64748b',
+          color: '#a78bfa',
           font: {
             family: 'Inter',
             size: 11,
@@ -89,11 +89,11 @@ export const BarChart = ({ data }) => {
       },
       y: {
         grid: {
-          color: '#334155',
+          color: '#3b1d59',
           drawBorder: false,
         },
         ticks: {
-          color: '#64748b',
+          color: '#a78bfa',
           font: {
             family: 'Inter',
             size: 11,
@@ -107,10 +107,10 @@ export const BarChart = ({ data }) => {
   return (
     <div
       data-testid="bar-chart-container"
-      className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 flex flex-col hover:border-blue-500/30 transition-all"
+      className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl p-6 flex flex-col hover:border-purple-600/50 transition-all"
     >
       {/* Header */}
-      <h3 className="text-lg font-medium tracking-tight text-slate-100 mb-6">
+      <h3 className="text-lg font-medium tracking-tight text-white mb-6">
         Best Unit Operations with Latest Number of Alerts
       </h3>
 

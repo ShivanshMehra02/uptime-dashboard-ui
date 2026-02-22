@@ -18,10 +18,10 @@ export const ReportList = ({
   return (
     <div
       data-testid="report-list-panel"
-      className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col h-full"
+      className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl overflow-hidden flex flex-col h-full"
     >
       {/* Header */}
-      <div className="p-5 border-b border-slate-700/50">
+      <div className="p-5 border-b border-purple-800/30">
         <h2 className="text-lg font-semibold tracking-tight text-white mb-4">
           Select Report Dashboard
         </h2>
@@ -29,20 +29,20 @@ export const ReportList = ({
         {/* Search and Add button row */}
         <div className="flex gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400/50" />
             <Input
               data-testid="report-search-input"
               type="text"
               placeholder="Search reports..."
               value={searchQuery}
               onChange={(e) => onSearch(e.target.value)}
-              className="pl-10 bg-slate-900/50 border-slate-700 focus:border-blue-500 focus:ring-0 text-white placeholder:text-slate-500 rounded-lg h-10"
+              className="pl-10 bg-purple-950/30 border-purple-800/30 focus:border-purple-500 focus:ring-0 text-white placeholder:text-purple-400/50 rounded-xl h-10"
             />
           </div>
           <Button
             data-testid="add-report-button"
             onClick={onAddClick}
-            className="bg-blue-500 text-white hover:bg-blue-600 shadow-sm font-medium transition-colors rounded-lg px-4 py-2 h-10"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/20 font-medium transition-all rounded-xl px-4 py-2 h-10"
           >
             <Plus className="h-4 w-4 mr-1" />
             Add
@@ -65,7 +65,7 @@ export const ReportList = ({
             />
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center py-12 text-slate-500">
+          <div className="flex flex-col items-center justify-center py-12 text-purple-400/50">
             <Search className="h-8 w-8 mb-3" />
             <p className="text-sm">No reports found</p>
           </div>
@@ -76,9 +76,9 @@ export const ReportList = ({
       {totalPages > 1 && (
         <div
           data-testid="pagination-controls"
-          className="p-4 border-t border-slate-700/50 flex items-center justify-between"
+          className="p-4 border-t border-purple-800/30 flex items-center justify-between"
         >
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-purple-400/70">
             Page {currentPage} of {totalPages}
           </span>
           <div className="flex gap-2">
@@ -88,7 +88,7 @@ export const ReportList = ({
               size="sm"
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="bg-slate-700 text-slate-50 hover:bg-slate-600 border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
+              className="bg-purple-900/30 text-purple-200 hover:bg-purple-800/40 border-purple-700/30 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -98,7 +98,7 @@ export const ReportList = ({
               size="sm"
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="bg-slate-700 text-slate-50 hover:bg-slate-600 border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
+              className="bg-purple-900/30 text-purple-200 hover:bg-purple-800/40 border-purple-700/30 disabled:opacity-50 disabled:cursor-not-allowed h-8 w-8 p-0"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>

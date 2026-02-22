@@ -55,13 +55,13 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent
         data-testid="add-report-modal"
-        className="bg-slate-900 border border-slate-700 sm:max-w-[425px] shadow-2xl"
+        className="bg-[#1e1432] border border-purple-700/50 sm:max-w-[425px] shadow-2xl shadow-purple-900/30"
       >
         <DialogHeader className="text-left space-y-2">
           <DialogTitle className="text-lg font-semibold text-white">
             Add Dashboard Report
           </DialogTitle>
-          <DialogDescription className="text-sm text-slate-400">
+          <DialogDescription className="text-sm text-purple-300/70">
             Create a new report to monitor your alerts and metrics.
           </DialogDescription>
         </DialogHeader>
@@ -69,8 +69,8 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
         <form onSubmit={handleSubmit} className="space-y-5 mt-4">
           {/* Title field */}
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-sm font-medium text-slate-300">
-              Title <span className="text-rose-400">*</span>
+            <Label htmlFor="title" className="text-sm font-medium text-purple-200">
+              Title <span className="text-pink-400">*</span>
             </Label>
             <Input
               id="title"
@@ -82,12 +82,12 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
                 setTitle(e.target.value);
                 if (errors.title) setErrors((prev) => ({ ...prev, title: '' }));
               }}
-              className={`bg-slate-800 border-slate-700 focus:border-blue-500 focus:ring-0 text-white placeholder:text-slate-500 rounded-lg h-10 ${
-                errors.title ? 'border-rose-500' : ''
+              className={`bg-purple-950/30 border-purple-700/50 focus:border-purple-500 focus:ring-0 text-white placeholder:text-purple-400/50 rounded-xl h-10 ${
+                errors.title ? 'border-pink-500' : ''
               }`}
             />
             {errors.title && (
-              <p data-testid="title-error" className="text-xs text-rose-400 mt-1">
+              <p data-testid="title-error" className="text-xs text-pink-400 mt-1">
                 {errors.title}
               </p>
             )}
@@ -95,8 +95,8 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
 
           {/* Subtitle field */}
           <div className="space-y-2">
-            <Label htmlFor="subtitle" className="text-sm font-medium text-slate-300">
-              Subtitle <span className="text-rose-400">*</span>
+            <Label htmlFor="subtitle" className="text-sm font-medium text-purple-200">
+              Subtitle <span className="text-pink-400">*</span>
             </Label>
             <Input
               id="subtitle"
@@ -108,12 +108,12 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
                 setSubtitle(e.target.value);
                 if (errors.subtitle) setErrors((prev) => ({ ...prev, subtitle: '' }));
               }}
-              className={`bg-slate-800 border-slate-700 focus:border-blue-500 focus:ring-0 text-white placeholder:text-slate-500 rounded-lg h-10 ${
-                errors.subtitle ? 'border-rose-500' : ''
+              className={`bg-purple-950/30 border-purple-700/50 focus:border-purple-500 focus:ring-0 text-white placeholder:text-purple-400/50 rounded-xl h-10 ${
+                errors.subtitle ? 'border-pink-500' : ''
               }`}
             />
             {errors.subtitle && (
-              <p data-testid="subtitle-error" className="text-xs text-rose-400 mt-1">
+              <p data-testid="subtitle-error" className="text-xs text-pink-400 mt-1">
                 {errors.subtitle}
               </p>
             )}
@@ -125,14 +125,14 @@ export const AddReportModal = ({ isOpen, onClose, onSubmit }) => {
               type="button"
               data-testid="modal-cancel-button"
               onClick={handleClose}
-              className="bg-slate-700 text-slate-50 hover:bg-slate-600 border border-slate-600 transition-colors rounded-lg px-4 py-2"
+              className="bg-purple-900/50 text-purple-200 hover:bg-purple-800/50 border border-purple-700/30 transition-colors rounded-xl px-4 py-2"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               data-testid="modal-submit-button"
-              className="bg-blue-500 text-white hover:bg-blue-600 shadow-sm font-medium transition-colors rounded-lg px-4 py-2"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/20 font-medium transition-all rounded-xl px-4 py-2"
             >
               Add Report
             </Button>

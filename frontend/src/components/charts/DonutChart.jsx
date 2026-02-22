@@ -13,7 +13,7 @@ export const DonutChart = ({ data }) => {
     return data.open + data.inProcess + data.acknowledged + data.onWatch;
   }, [data]);
 
-  // Chart.js configuration
+  // Chart.js configuration with purple theme
   const chartData = useMemo(() => ({
     labels: ['Open', 'In Process', 'Acknowledged', 'On Watch'],
     datasets: [
@@ -21,9 +21,9 @@ export const DonutChart = ({ data }) => {
         data: data
           ? [data.open, data.inProcess, data.acknowledged, data.onWatch]
           : [25, 30, 25, 20],
-        backgroundColor: ['#3b82f6', '#06b6d4', '#10b981', '#475569'],
-        borderColor: '#1e293b',
-        borderWidth: 3,
+        backgroundColor: ['#a855f7', '#ec4899', '#22d3ee', '#6366f1'],
+        borderColor: '#1e1432',
+        borderWidth: 4,
         hoverOffset: 8,
       },
     ],
@@ -37,7 +37,7 @@ export const DonutChart = ({ data }) => {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#94a3b8',
+          color: '#c4b5fd',
           font: {
             family: 'Inter',
             size: 12,
@@ -64,10 +64,10 @@ export const DonutChart = ({ data }) => {
         },
       },
       tooltip: {
-        backgroundColor: '#1e293b',
-        titleColor: '#f8fafc',
-        bodyColor: '#94a3b8',
-        borderColor: '#334155',
+        backgroundColor: '#1e1432',
+        titleColor: '#f5f3ff',
+        bodyColor: '#c4b5fd',
+        borderColor: '#581c87',
         borderWidth: 1,
         cornerRadius: 8,
         padding: 12,
@@ -85,10 +85,10 @@ export const DonutChart = ({ data }) => {
   return (
     <div
       data-testid="donut-chart-container"
-      className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 flex flex-col hover:border-blue-500/30 transition-all"
+      className="bg-[#1e1432]/80 border border-purple-800/30 rounded-2xl p-6 flex flex-col hover:border-purple-600/50 transition-all"
     >
       {/* Header */}
-      <h3 className="text-lg font-medium tracking-tight text-slate-100 mb-6">
+      <h3 className="text-lg font-medium tracking-tight text-white mb-6">
         Alert Rates Distribution
       </h3>
 
